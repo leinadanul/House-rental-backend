@@ -19,7 +19,7 @@ COMMENT ON DATABASE postgres
 --""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""--
 --""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""--
 
---TABLE OF LANDLORD 
+--LANDLORDS TABLE
 
 -- Table: public.landlord
 
@@ -40,4 +40,34 @@ CREATE TABLE IF NOT EXISTS public.landlord
 TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.landlord
+    OWNER to postgres;
+
+--""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""--
+--""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""--
+
+--PROPERTIES TABLE
+
+
+
+CREATE TABLE IF NOT EXISTS public.properties
+(
+    property_id bigint NOT NULL,
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    property_type character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    location character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    capacity integer NOT NULL,
+    property character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    host_info character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    characteristics character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    description text COLLATE pg_catalog."default",
+    features character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    default_available boolean NOT NULL,
+    price integer NOT NULL,
+    additional_fees character varying(255) COLLATE pg_catalog."default",
+    CONSTRAINT properties_pkey PRIMARY KEY (property_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.properties
     OWNER to postgres;

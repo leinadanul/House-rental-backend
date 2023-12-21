@@ -1,17 +1,17 @@
 from fastapi import FastAPI
-from managers.database.implementations.SQLalchemyImpl import SqlalchemyDBManager
-from services.LandlordServices import LandlordServices
+from managers.database.implementations.sqlalchemy_impl import SqlalchemyDBManager
+from services.landlord_services import LandlordServices
 from routes.landlord_routes import LandlordRoutesManager
 
 app = FastAPI()
 
 database_impl = SqlalchemyDBManager()
 
-landLordService = LandlordServices(database_impl) 
+landLord_service = LandlordServices(database_impl) 
 
-landlordRouter = LandlordRoutesManager(landLordService)
+landlord_router = LandlordRoutesManager(landLord_service)
 
-app.include_router(landlordRouter.get_router())
+app.include_router(landlord_router.get_router())
 
 
 

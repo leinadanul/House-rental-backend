@@ -2,10 +2,10 @@ from pydantic import BaseModel
 
 class Landlord(BaseModel):
     id: int
-    firstName: str
-    lastName: str
+    first_name: str
+    last_name: str
     email: str
-    phoneNumber: int
-    mobileNumber: int
-    companyName: str
+    phone_number: int
+    mobile_number: int
+    company_name: str
     picture: str

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from services.LandlordServices import LandlordServices
+from services.landlord_services import LandlordServices
 
 class LandlordRoutesManager():
     def __init__(self, service: LandlordServices):

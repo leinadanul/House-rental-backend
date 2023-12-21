@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
-from models.Landlord import Landlord
-from managers.database.implementations.models.Landlord import LandlordRecords
+from models.landlord import Landlord
+from managers.database.implementations.models.landlord import LandlordRecords
 from managers.database.db_manager import DatabaseManager
 
 
@@ -11,7 +11,7 @@ class SqlalchemyDBManager(DatabaseManager):
         self.engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 
-    def upsertLandlord(self, landlord: Landlord) -> Landlord:
+    def upsert_landlord(self, landlord: Landlord) -> Landlord:
 
         with Session(self.engine) as session:
 
@@ -21,14 +21,14 @@ class SqlalchemyDBManager(DatabaseManager):
             else:
                 new_landlord = LandlordRecords(
                     id=landlord.id,
-                    first_name=landlord.firstName,
-                    last_name=landlord.lastName,
+                    first_name=landlord.first_name,
+                    last_name=landlord.last_name,
                     email=landlord.email,
-                    phone_number=landlord.phoneNumber,
-                    mobile_number=landlord.mobileNumber,
-                    company_name=landlord.companyName,
+                    phone_number=landlord.phone_number,
+                    mobile_number=landlord.mobile_number,
+                    company_name=landlord.company_name,
                     picture=landlord.picture
                 )
                 session.add(new_landlord)
-            session.commit()
+                session.commit()
         return landlord
