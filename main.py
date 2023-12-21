@@ -1,16 +1,21 @@
-from typing import Union
-
 from fastapi import FastAPI
-from models import landlord
+from managers.database.implementations.SQLalchemyImpl import SqlalchemyDBManager
+from services.LandlordServices import LandlordServices
+from routes.landlord_routes import LandlordRoutesManager
 
 app = FastAPI()
 
+database_impl = SqlalchemyDBManager()
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+landLordService = LandlordServices(database_impl) 
+
+landlordRouter = LandlordRoutesManager(landLordService)
+
+app.include_router(landlordRouter.get_router())
 
 
-@app.post("/landlord_registred")
-def create_landlord(landlord: landlord):
-    return landlord
+
+
+
+
+

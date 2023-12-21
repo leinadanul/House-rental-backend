@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class landlord(BaseModel):
+class Landlord(BaseModel):
     id: int
     firstName: str
     lastName: str
