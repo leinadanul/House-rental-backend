@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 class Landlord(BaseModel):
-    id: int
+    id: int | None = None
     first_name: str
     last_name: str
     email: str

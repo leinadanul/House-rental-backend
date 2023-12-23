@@ -7,5 +7,4 @@ class LandlordServices():
 
 
     def create_landlord(self, landlord: Landlord):
-        self.database_manager.upsert_landlord(landlord)
-        return landlord
+        return self.database_manager.upsert_landlord(landlord)

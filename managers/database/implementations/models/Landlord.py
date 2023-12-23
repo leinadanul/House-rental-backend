@@ -11,7 +11,7 @@ class Base(DeclarativeBase):
 class LandlordRecords(Base):
     __tablename__ = 'landlord'
 
-    id: Mapped[int] = mapped_column(primary_key=True,  nullable=False)
+    id: Mapped[int] = mapped_column(primary_key=True,  nullable=False, autoincrement=True)
     first_name: Mapped[str] = mapped_column(String(50), nullable=False)
     last_name: Mapped[str] = mapped_column(String(50), nullable=False)
     email: Mapped[str] = mapped_column(String(100), nullable=False)
