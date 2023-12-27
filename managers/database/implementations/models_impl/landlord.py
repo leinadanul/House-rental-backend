@@ -1,4 +1,4 @@
-'''from sqlalchemy.orm import DeclarativeBase
+"""from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy import create_engine, engine, Table, MetaData, Column, Integer, String
@@ -36,4 +36,4 @@ class LandlordRecords(Base):
     company_name: Mapped[str] = mapped_column(String(100), nullable=False)
     picture: Mapped[str] = mapped_column(String(255), nullable=False)
 
-'''
+"""

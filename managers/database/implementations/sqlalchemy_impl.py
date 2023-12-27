@@ -1,4 +1,4 @@
-'''from sqlalchemy.orm import Session
+"""from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, engine, Table, MetaData, Column, Integer, String
 from sqlalchemy import insert
 from models.landlord import Landlord
@@ -58,4 +58,4 @@ class SqlalchemyDBManager(DatabaseManager):
 #                return landlord
 
 
-'''
+"""

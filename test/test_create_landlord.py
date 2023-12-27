@@ -3,6 +3,7 @@ from unittest.mock import MagicMock
 from services.landlord_services import LandlordServices
 from models.landlord import Landlord
 
+
 class TestLandlordService(unittest.TestCase):
     def setUp(self):
         self.mock_data_manager = MagicMock()
@@ -16,8 +17,8 @@ class TestLandlordService(unittest.TestCase):
             phone_number=1234,
             mobile_number=567,
             company_name="Eel factory",
-            picture="picture"
-                )
+            picture="picture",
+        )
 
         new_landlord_2 = Landlord(
             id=1,
@@ -27,8 +28,8 @@ class TestLandlordService(unittest.TestCase):
             phone_number=1234,
             mobile_number=567,
             company_name="Eel factory",
-            picture="picture"
-                )
+            picture="picture",
+        )
 
         self.mock_data_manager.insert_landlord.return_value = new_landlord_2
         response = self.landlord_service.create_landlord(new_landlord)
@@ -44,10 +45,10 @@ class TestLandlordService(unittest.TestCase):
             phone_number=1234,
             mobile_number=567,
             company_name="Eel factory",
-            picture="picture"
-                )
-        
-        self.mock_data_manager.insert_landlord.side_effect = Exception('Test')
+            picture="picture",
+        )
+
+        self.mock_data_manager.insert_landlord.side_effect = Exception("Test")
         with self.assertRaises(Exception):
             self.landlord_service.create_landlord(new_landlord)
         self.mock_data_manager.insert_landlord.assert_called_once_with(new_landlord)
