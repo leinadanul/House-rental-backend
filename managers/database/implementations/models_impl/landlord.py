@@ -36,4 +36,5 @@ class LandlordRecords(Base):
     company_name: Mapped[str] = mapped_column(String(100), nullable=False)
     picture: Mapped[str] = mapped_column(String(255), nullable=False)
 
+
 """
