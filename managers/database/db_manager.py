@@ -1,10 +1,9 @@
 from abc import ABC
 from typing import List
 
-from models.Landlord import Landlord
-
-class DatabaseManager (ABC):
+from models.landlord import Landlord
 
 
-    def upsertLandlord(self, landlord: Landlord)->Landlord:
+class DatabaseManager(ABC):
+    def insert_landlord(self, landlord: Landlord) -> Landlord:
         pass
