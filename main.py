@@ -1,15 +1,22 @@
-from typing import Union
-
 from fastapi import FastAPI
+from managers.database.implementations.psycopg2_sql_impl import PsycopgDBManagerImpl
+
+# from managers.database.implementations.sqlalchemy_impl import SqlalchemyDBManager
+from services.landlord_services import LandlordServices
+from routes.landlord_routes import LandlordRoutesManager
+
 
 app = FastAPI()
 
+database_impl = PsycopgDBManagerImpl()
+# database_impl = SqlalchemyDBManager()
+landLord_service = LandlordServices(database_impl)
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+landlord_router = LandlordRoutesManager(landLord_service)
 
+app.include_router(landlord_router.post_router())
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="127.0.0.1", port=5000)
