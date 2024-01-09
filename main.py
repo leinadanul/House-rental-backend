@@ -6,6 +6,8 @@ from services.landlord_services import LandlordServices
 from services.property_services import PropertyService
 from routes.landlord_routes import LandlordRoutesManager
 from routes.property_routes import PropertyRoutesManager
+from fastapi.middleware.cors import CORSMiddleware
+
 
 
 app = FastAPI()
@@ -21,8 +23,16 @@ property_service = PropertyService(database_impl)
 property_router = PropertyRoutesManager(property_service)
 app.include_router(property_router.post_router())
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="127.0.0.1", port=5000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)

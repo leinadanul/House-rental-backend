@@ -20,14 +20,14 @@ class PsycopgDBManagerImpl(DatabaseManager):
         cur = self.connection.cursor()
         cur.execute(
             """INSERT INTO landlord(
-            first_name, last_name, email, phone_number, mobile_number, company_name, picture)
-            VALUES (%(first_name)s, %(last_name)s, %(email)s, %(phone_number)s, %(mobile_number)s, %(company_name)s, %(picture)s) RETURNING id """,
+            first_name, last_name, email, phone_number, company_number, company_name, picture)
+            VALUES (%(first_name)s, %(last_name)s, %(email)s, %(phone_number)s, %(company_number)s, %(company_name)s, %(picture)s) RETURNING id """,
             {
                 "first_name": landlord.first_name,
                 "last_name": landlord.last_name,
                 "email": landlord.email,
                 "phone_number": landlord.phone_number,
-                "mobile_number": landlord.mobile_number,
+                "company_number": landlord.company_number,
                 "company_name": landlord.company_name,
                 "picture": landlord.picture,
             },

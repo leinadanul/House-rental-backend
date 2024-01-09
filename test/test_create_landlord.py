@@ -15,7 +15,7 @@ class TestLandlordService(unittest.TestCase):
             last_name="Eel",
             email="peter@theeel.com",
             phone_number=1234,
-            mobile_number=567,
+            company_number=567,
             company_name="Eel factory",
             picture="picture",
         )
@@ -26,7 +26,7 @@ class TestLandlordService(unittest.TestCase):
             last_name="Eel",
             email="peter@theeel.com",
             phone_number=1234,
-            mobile_number=567,
+            company_number=567,
             company_name="Eel factory",
             picture="picture",
         )
@@ -43,7 +43,7 @@ class TestLandlordService(unittest.TestCase):
             last_name="Eel",
             email="peter@theeel.com",
             phone_number=1234,
-            mobile_number=567,
+            company_number=567,
             company_name="Eel factory",
             picture="picture",
         )
